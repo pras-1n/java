@@ -6,17 +6,17 @@ public class InteractiveGreeting {
         //create a scanner object to read what user types in the terminal
         Scanner input = new Scanner(System.in);
 
-        System.out.print("お名前をご入力いただけますと幸いです");
+        System.out.print("お名前を入力してください：");
         String name = input.nextLine(); //pauses and waits for user to type text
 
-        System.out.print("ご年齢をご入力賜りますようお願い申し上げます。");
+        System.out.print("ご年齢を入力してください：");
         int age = input.nextInt();
 
         int dogYears = age * 7;
 
-        System.out.println("\n--- お待たせいたしました ---");
-        System.out.println(name + "様、ようこそお越しくださいました。");
-        System.out.println("恐れながら申し上げますと、もし犬でいらっしゃいましたら、ご年齢は"+dogYears+"歳となります。");
+        System.out.println("\n--- ジャーン ---");
+        System.out.println("こんにちは" + name + "さん、はじめまして。");
+        System.out.println("もし" + name + "さんが犬だったら、年齢は"+dogYears+"歳になるんです。");
 
         input.close();
     }
