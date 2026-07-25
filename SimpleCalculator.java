@@ -19,6 +19,7 @@ public class SimpleCalculator {
         System.out.println(num1 + " - " + num2 + " = " + difference);   
         
         System.out.println(num1 + " * " + num2 + " = " + multiply(num1, num2));
+        System.out.println(num1 + " / " + num2 + " = " + divide(num1, num2));
 
         input.close();
     }
@@ -33,6 +34,10 @@ public class SimpleCalculator {
     }
 
     public static double multiply(double a, double b) {
-        return a*b;
+        return a * b;
+    }
+
+    public static double divide(double a, double b) {
+        return a / b;
     }
 }
