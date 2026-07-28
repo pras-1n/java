@@ -71,6 +71,8 @@ public class SuperHeroArena {
 
         peter.heal(10);
 
+        matt.attack(matt);
+
         steve.attack(saitama);
         steve.attack(saitama);
         steve.attack(saitama);
