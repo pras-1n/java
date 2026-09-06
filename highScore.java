@@ -25,5 +25,3 @@ public class highScore {
         return position;
     }
 }
-
-
