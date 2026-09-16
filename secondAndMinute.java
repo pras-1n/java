@@ -1,7 +1,8 @@
 public class secondAndMinute {
     public static void main(String[] args){
-        System.out.println(getDurationString(3945));
-        System.out.println(getDurationString(65, 45));
+        System.out.println(getDurationString(-3945));
+        System.out.println(getDurationString(-65, 45));
+       System.out.println(getDurationString(65, 145));
     }
 
     public static String getDurationString(int seconds){
