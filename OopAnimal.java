@@ -1,5 +1,10 @@
 abstract class Animal {
     private String name;
+
+    public Animal(String name) {
+        this.name = name;
+    }
+
     public String getName() {
         return name;
     }
@@ -7,9 +12,14 @@ abstract class Animal {
         this.name = name;
     }
     abstract void makeSound();
+    abstract void performRoutine();
 }
 
 class Dog extends Animal {
+    public Dog(String name){
+        super(name);
+    }
+
     @Override 
     void makeSound() {
         System.out.println(getName() + "は「ワンワン」と鳴く。");
@@ -22,9 +32,19 @@ class Dog extends Animal {
     void play(String item) {
         System.out.println(getName() + "は" + item + "を取ってくる。");
     }
+
+    @Override
+    void performRoutine() {
+        play();
+        play("タバコ");
+    }
 }
 
 class Axolotl extends Animal {
+    public Axolotl(String name){
+        super(name);
+    }
+
     @Override 
     void makeSound() {
         System.out.println(getName() + "は「ポコポコ」と水音を立てる。");
@@ -33,9 +53,18 @@ class Axolotl extends Animal {
     void regenerate(String bodyPart) {
         System.out.println(getName() + "は" + bodyPart + "を素早く再生した。");
     }
+
+    @Override
+    void performRoutine() {
+        regenerate("しっぽ");
+    }
 }
 
 class Horse extends Animal {
+    public Horse(String name){
+        super(name);
+    }
+
     @Override 
     void makeSound() {
         System.out.println(getName() + "は「ヒヒーン」といななく。");
@@ -48,29 +77,55 @@ class Horse extends Animal {
     void race(int distance) {
         System.out.println(getName() + "は" + distance + "kmを走る。");
     }
+
+    @Override
+    void performRoutine() {
+        race();
+        race(10);
+    }
 }
 
 public class OopAnimal {
+
+    public static void printDivider(){
+        System.out.println("=".repeat(25));
+    }
+
     public static void main(String[] args) {
-        Dog myDog = new Dog();
-        myDog.setName("ポチタ");
-        myDog.makeSound();
-        myDog.play();
-        myDog.play("タバコ");
+        Animal[] farm = {
+            new Dog("ポチタ"),
+            new Axolotl("ウパ"),
+            new Horse("フェラーリ")
+        };
+        // farm[0].setName("ポチタ");
+        // farm[1].setName("ウパ");
+        // farm[2].setName("フェラーリ");
 
-        System.out.println("--------------------");
+        for (Animal animal : farm) {
+            animal.makeSound();
+            animal.performRoutine();
+            printDivider();
+        }
 
-        Axolotl myAxolotl = new Axolotl();
-        myAxolotl.setName("ウパ");
-        myAxolotl.makeSound();
-        myAxolotl.regenerate("しっぽ");
+        // Dog myDog = new Dog();
+        // myDog.setName("ポチタ");
+        // myDog.makeSound();
+        // myDog.play();
+        // myDog.play("タバコ");
 
-        System.out.println("--------------------");
+        // System.out.println("--------------------");
 
-        Horse myHorse = new Horse();
-        myHorse.setName("フェラーリ");
-        myHorse.makeSound();
-        myHorse.race();
-        myHorse.race(10);
+        // Axolotl myAxolotl = new Axolotl();
+        // myAxolotl.setName("ウパ");
+        // myAxolotl.makeSound();
+        // myAxolotl.regenerate("しっぽ");
+
+        // System.out.println("--------------------");
+
+        // Horse myHorse = new Horse();
+        // myHorse.setName("フェラーリ");
+        // myHorse.makeSound();
+        // myHorse.race();
+        // myHorse.race(10);
     }
 }
