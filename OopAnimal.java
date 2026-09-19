@@ -91,25 +91,33 @@ class Horse extends Animal {
     }
 }
 
-public class OopAnimal {
-
-    public static void printDivider() {
+class AnimalService {
+    public void printDivider() {
         System.out.println("=".repeat(25));
     }
 
-    public static void main(String[] args) {
+    public void runDailyRoutine(List<Animal> animals) {
+        for (Animal animal : animals) {
 
-        List<Animal> farm = new ArrayList<>();
-        farm.add(new Dog("ポチタ"));
-        farm.add(new Axolotl("ウパ"));
-        farm.add(new Horse("フェラーリ"));
-
-        farm.add(new Dog("ハチ公"));
-
-        for (Animal animal : farm) {
             animal.makeSound();
             animal.performRoutine();
             printDivider();
+        }
+    }
+
+    public class OopAnimal {
+
+        public static void main(String[] args) {
+
+            List<Animal> farm = new ArrayList<>();
+            farm.add(new Dog("ポチタ"));
+            farm.add(new Axolotl("ウパ"));
+            farm.add(new Horse("フェラーリ"));
+            farm.add(new Dog("ハチ公"));
+
+            AnimalService service = new AnimalService();
+            service.runDailyRoutine(farm);
+
         }
     }
 }
