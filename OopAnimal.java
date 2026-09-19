@@ -104,20 +104,20 @@ class AnimalService {
             printDivider();
         }
     }
+}
 
-    public class OopAnimal {
+public class OopAnimal {
 
-        public static void main(String[] args) {
+    public static void main(String[] args) {
 
-            List<Animal> farm = new ArrayList<>();
-            farm.add(new Dog("ポチタ"));
-            farm.add(new Axolotl("ウパ"));
-            farm.add(new Horse("フェラーリ"));
-            farm.add(new Dog("ハチ公"));
+        List<Animal> farm = new ArrayList<>();
+        farm.add(new Dog("ポチタ"));
+        farm.add(new Axolotl("ウパ"));
+        farm.add(new Horse("フェラーリ"));
+        farm.add(new Dog("ハチ公"));
 
-            AnimalService service = new AnimalService();
-            service.runDailyRoutine(farm);
+        AnimalService service = new AnimalService();
+        service.runDailyRoutine(farm);
 
-        }
     }
 }
