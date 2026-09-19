@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 abstract class Animal {
     private String name;
 
@@ -8,19 +11,22 @@ abstract class Animal {
     public String getName() {
         return name;
     }
+
     public void setName(String name) {
         this.name = name;
     }
+
     abstract void makeSound();
+
     abstract void performRoutine();
 }
 
 class Dog extends Animal {
-    public Dog(String name){
+    public Dog(String name) {
         super(name);
     }
 
-    @Override 
+    @Override
     void makeSound() {
         System.out.println(getName() + "は「ワンワン」と鳴く。");
     }
@@ -41,11 +47,11 @@ class Dog extends Animal {
 }
 
 class Axolotl extends Animal {
-    public Axolotl(String name){
+    public Axolotl(String name) {
         super(name);
     }
 
-    @Override 
+    @Override
     void makeSound() {
         System.out.println(getName() + "は「ポコポコ」と水音を立てる。");
     }
@@ -61,11 +67,11 @@ class Axolotl extends Animal {
 }
 
 class Horse extends Animal {
-    public Horse(String name){
+    public Horse(String name) {
         super(name);
     }
 
-    @Override 
+    @Override
     void makeSound() {
         System.out.println(getName() + "は「ヒヒーン」といななく。");
     }
@@ -87,16 +93,25 @@ class Horse extends Animal {
 
 public class OopAnimal {
 
-    public static void printDivider(){
+    public static void printDivider() {
         System.out.println("=".repeat(25));
     }
 
     public static void main(String[] args) {
-        Animal[] farm = {
-            new Dog("ポチタ"),
-            new Axolotl("ウパ"),
-            new Horse("フェラーリ")
-        };
+
+        // Animal[] farm = {
+        //         new Dog("ポチタ"),
+        //         new Axolotl("ウパ"),
+        //         new Horse("フェラーリ")
+        // };
+
+        List<Animal> farm = new ArrayList<>();
+        farm.add(new Dog("ポチタ"));
+        farm.add(new Axolotl("ウパ"));
+        farm.add(new Horse("フェラーリ"));
+
+        farm.add(new Dog("ハチ公"));
+
         // farm[0].setName("ポチタ");
         // farm[1].setName("ウパ");
         // farm[2].setName("フェラーリ");
