@@ -99,12 +99,6 @@ public class OopAnimal {
 
     public static void main(String[] args) {
 
-        // Animal[] farm = {
-        //         new Dog("ポチタ"),
-        //         new Axolotl("ウパ"),
-        //         new Horse("フェラーリ")
-        // };
-
         List<Animal> farm = new ArrayList<>();
         farm.add(new Dog("ポチタ"));
         farm.add(new Axolotl("ウパ"));
@@ -112,35 +106,10 @@ public class OopAnimal {
 
         farm.add(new Dog("ハチ公"));
 
-        // farm[0].setName("ポチタ");
-        // farm[1].setName("ウパ");
-        // farm[2].setName("フェラーリ");
-
         for (Animal animal : farm) {
             animal.makeSound();
             animal.performRoutine();
             printDivider();
         }
-
-        // Dog myDog = new Dog();
-        // myDog.setName("ポチタ");
-        // myDog.makeSound();
-        // myDog.play();
-        // myDog.play("タバコ");
-
-        // System.out.println("--------------------");
-
-        // Axolotl myAxolotl = new Axolotl();
-        // myAxolotl.setName("ウパ");
-        // myAxolotl.makeSound();
-        // myAxolotl.regenerate("しっぽ");
-
-        // System.out.println("--------------------");
-
-        // Horse myHorse = new Horse();
-        // myHorse.setName("フェラーリ");
-        // myHorse.makeSound();
-        // myHorse.race();
-        // myHorse.race(10);
     }
 }
