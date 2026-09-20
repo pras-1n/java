@@ -46,5 +46,13 @@ public class BaltimoreStreetOps {
                 { 0, 0, 300 } // floor 3 (roof stash)
         };
         System.out.println("Floor 2, Room B stash count: " + highRiseStash[1][1]);
+
+        if (roundedRisk > 75) {
+            System.out.println("RISK HIGH: Stringer ordered everyone off the pagers. Pack up.");
+        } else if (roundedRisk > 40) {
+            System.out.println("Risk Moderate: Herc and Carver are looking. Move the stash.");
+        } else {
+            System.out.println("Rish Low: Business as usual. Joe's package is moving.");
+        }
     }
 }
