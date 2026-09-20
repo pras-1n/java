@@ -91,11 +91,16 @@ class Horse extends Animal {
     }
 }
 
-class AnimalService {
+interface AnimalService {
+    void runDailyRoutine(List<Animal> animals);
+}
+
+class AnimalServiceImpl implements AnimalService {
     public void printDivider() {
         System.out.println("=".repeat(25));
     }
 
+    @Override
     public void runDailyRoutine(List<Animal> animals) {
         for (Animal animal : animals) {
 
@@ -116,8 +121,7 @@ public class OopAnimal {
         farm.add(new Horse("フェラーリ"));
         farm.add(new Dog("ハチ公"));
 
-        AnimalService service = new AnimalService();
+        AnimalService service = new AnimalServiceImpl();
         service.runDailyRoutine(farm);
-
     }
 }
