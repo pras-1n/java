@@ -54,5 +54,36 @@ public class BaltimoreStreetOps {
         } else {
             System.out.println("Rish Low: Business as usual. Joe's package is moving.");
         }
+
+        // Switch Statements
+
+        String soldier = "Bodie";
+
+        switch (soldier) {
+            case "Avon" -> System.out.println("Role: King. Directs muscle, avoids court.");
+            case "Stringer" -> System.out.println("Role: CEO. Runs the money through B&B enterprises.");
+            case "Bodie", "Poot" -> System.out.println("Role: Corner boys. Hold the low rises");
+            case "Wee-Bey" -> System.out.println("Role: Enforcer. Keeps the muscle away from Barksdale.");
+            default -> System.out.println("Role: Unknown associate / potential CI.");
+        }
+
+        // Branching (break & continue)
+
+        System.out.println("\n--- Inspecting Stash Units on Floor 2 ---");
+        int[] floorTwoRooms = highRiseStash[1];
+
+        for (int i = 0; i < floorTwoRooms.length; i++) {
+            if (floorTwoRooms[i] == 0) {
+                System.out.println("Room " + i + " is empty. Skipping");
+                continue;
+            }
+
+            if (isWiretapActive && i == 2) {
+                System.out.println("BPD blue-and-white spotted outside Room " + i + "! Break inspection!");
+                break;
+            }
+
+            System.out.println("Room " + i + " verified: " + floorTwoRooms[i] + " packs secured.");
+        }
     }
 }
