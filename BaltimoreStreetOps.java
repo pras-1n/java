@@ -8,6 +8,47 @@ import java.util.Arrays;
  * @author Stringer Bell, Copy Shop
  */
 
+enum BarksdaleRank {
+    KINGPIN(5, "Top of the ladder. Never touches the package."),
+    SECOND_IN_COMMAND(4, "Handles the money, business fronts, rules."),
+    LIEUTENANT(3, "Controls regional towers and low-rises."),
+    SOLDIER(2, "Enforces turf, drops muscles."),
+    CORNER_BOY(1, "Works the block, holds the vials.");
+
+    private final int authorityLevel;
+    private final String description;
+
+    BarksdaleRank(int authorityLevel, String description) {
+        this.authorityLevel = authorityLevel;
+        this.description = description;
+    }
+
+    public int getAuthorityLevel() {
+        return authorityLevel;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+}
+
+interface ConfidentialInformat {
+    void provideStreetIntel();
+}
+
+// node for recursion demo
+class TargetNode {
+    String name;
+    BarksdaleRank rank;
+    TargetNode directSuperior;
+
+    public TargetNode(String name, BarksdaleRank rank, TargetNode directSperior) {
+        this.name = name;
+        this.rank = rank;
+        this.directSuperior = directSperior;
+    }
+}
+
 public class BaltimoreStreetOps {
     public static void main(String[] args) {
         boolean isWiretapActive = true;
