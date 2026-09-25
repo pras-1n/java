@@ -1,4 +1,6 @@
-import java.util.Arrays;
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 /**
  * Barksdale Organiation Management System
@@ -46,6 +48,70 @@ class TargetNode {
         this.name = name;
         this.rank = rank;
         this.directSuperior = directSperior;
+    }
+}
+
+public class MajorCrimesWiretap {
+    private String caseName = "Barksdale Operation (Wiretap #01-A)";
+
+    // inner class (non-static: has access to outer class members)
+    public class WireTapRecorder {
+        private String targetLine;
+
+        public WireTapRecorder(String targetLine) {
+            this.targetLine = targetLine;
+        }
+
+        public void logIntercept() {
+            System.out.println("[" + caseName + "] Tapping line: " + targetLine);
+        }
+    }
+
+    // recursion
+    public static void traceChainOfCommand(TargetNode currentTarget) {
+        if (currentTarget == null) {
+            System.out.println(" -> [END OF CHAIN: Crown achieved or cut off]");
+            return;
+        }
+
+        System.out.println(" Level " + currentTarget.rank.getAuthorityLevel() + "[" + currentTarget.rank + "]: "
+                + currentTarget.name + " (" + currentTarget.rank.getDescription() + ")");
+
+        traceChainOfCommand(currentTarget.directSuperior);
+    }
+
+    public static void main(String[] args) {
+        System.out.println("=== BPD MAJOR CRIMES DIVISION - DETAIL ROOM ===\n");
+
+        // inner class instantiation
+        MajorCrimesWiretap detail = new MajorCrimesWiretap();
+        MajorCrimesWiretap.WireTapRecorder lineOne = detail.new WireTapRecorder("Payphone: Monroe & Fayette");
+        lineOne.logIntercept();
+
+        // wrapper classes and autoboxing (primitive int directly into integer object)
+        Integer wireTapId = 9021;
+        Double interceptedBailAmount = 1500.75;
+
+        // unboxing: wrapper object used automatically as primitive
+        double adjustedBail = interceptedBailAmount + 500.0;
+
+        // parsing using wrapper helper methods
+        String pagerRawCode = "4105550199";
+        long parsedPagerNumber = Long.parseLong(pagerRawCode);
+
+        System.out.print("Wiretap Ref: #" + wireTapId + " | Raw Pager Intercept: " + parsedPagerNumber +
+                " | Bail Target: $" + adjustedBail);
+
+        // data time and api (java.time)
+
+        LocalDateTime callStart = LocalDateTime.now();
+        LocalDateTime callEnd = callStart.plusMinutes(3).plusSeconds(42);
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        Duration callDuration = Duration.between(callStart, callEnd);
+
+        System.out.println("Intercept Recorded: " + callStart.format(formatter));
+        System.out.println("Duration: " + callDuration.toMinutes() + "m " + (callDuration.getSeconds() % 60) + "s");
     }
 }
 
